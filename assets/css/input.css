@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Sekuya";
+    src: url(../fonts/Sekuya.ttf);
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat.ttf");
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* ===== PADRÃO (NÃO MUDA) ===== */
+
+    --font-display: "Sekuya", sans-serif;
+    --font-default: "Montserrat", sans-serif;
+
+    --primary: #5E1ABA;
+    --secondary: #A685A3;
+
+    /* ===== DARK THEME ===== */
+    --base: #0D0028;
+
+    --surface-1: #140033;
+    --surface-2: #1B0A3D;
+
+    --primary-hover: #7A2CF0;
+    
+    --accent: #6EC8FF;
+
+    --text: #EAE6FF;
+    --text-muted: #A685A3;
+}
+
+[data-theme="dark"] {
+    /* ===== LIGHT THEME ===== */
+    --base: #F7F4FB;
+
+    --surface-1: #fff;
+    --surface-2: #EFEAF6;
+
+    --primary-hover: #4B1496;
+    
+    --accent: #5FADE6;
+
+    --text: #1B102A;
+    --text-muted: #5A4B66;
+}
+
+@layer utilities {
+    .font-sekuya {
+        font-family: var(--font-display);
+    }
+
+    .font-montserrat {
+        font-family: var(--font-default);
+    }
+    
+    .bg-base {
+        background-color: var(--base);
+    }
+
+    .bg-surface {
+        background-color: var(--surface);
+    }
+
+    .bg-surface2 {
+        background-color: var(--surface2);
+    }
+
+    .bg-primary {
+        background-color: var(--primary);
+    }
+
+    .bg-primary:hover {
+        background-color: var(--primary-hover);
+    }
+
+    .bg-secondary {
+        background-color: var(--secondary);
+    }
+
+    .bg-accent {
+        background-color: var(--accent);
+    }
+
+    .text-base {
+        color: var(--text);
+    }
+
+    .text-muted {
+        color: var(--text-muted);
+    }
+}
