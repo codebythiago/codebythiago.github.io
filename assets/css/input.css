@@ -67,11 +67,11 @@
     }
 
     .bg-surface {
-        background-color: var(--surface);
+        background-color: var(--surface-1);
     }
 
     .bg-surface2 {
-        background-color: var(--surface2);
+        background-color: var(--surface-2);
     }
 
     .bg-primary {
