@@ -7,6 +7,10 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-amber-100: oklch(96.2% 0.059 95.617);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
+    --color-amber-950: oklch(27.9% 0.077 45.635);
     --spacing: 0.25rem;
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
@@ -23,10 +27,13 @@
     --color-secondary: #A685A3;
     --color-dark-base: #0D0028;
     --color-dark-surface-2: #1B0A3D;
+    --color-dark-primary-hover: #7A2CF0;
     --color-dark-accent: #6EC8FF;
     --color-dark-text: #EAE6FF;
     --color-dark-border: rgba(138, 48, 255, 0.2);
+    --color-light-base: #F7F4FB;
     --color-light-surface-2: #EFEAF6;
+    --color-light-accent: #5FADE6;
     --color-light-text: #1B102A;
   }
 }
@@ -275,6 +282,9 @@
   .mb-20 {
     margin-bottom: calc(var(--spacing) * 20);
   }
+  .mb-30 {
+    margin-bottom: calc(var(--spacing) * 30);
+  }
   .block {
     display: block;
   }
@@ -305,11 +315,29 @@
   .table {
     display: table;
   }
+  .w-100 {
+    width: calc(var(--spacing) * 100);
+  }
   .w-\[55\%\] {
     width: 55%;
   }
   .w-\[60\%\] {
     width: 60%;
+  }
+  .w-\[clamp\(300px\,30vw\,700px\)\] {
+    width: clamp(300px, 30vw, 700px);
+  }
+  .w-\[clamp\(300px\,30vw\,800px\)\] {
+    width: clamp(300px, 30vw, 800px);
+  }
+  .w-\[clamp\(300px\,60vw\,700px\)\] {
+    width: clamp(300px, 60vw, 700px);
+  }
+  .w-\[clamp\(300px\,60vw\,800px\)\] {
+    width: clamp(300px, 60vw, 800px);
+  }
+  .w-\[clamp\(300px\,100\%\,700px\)\] {
+    width: clamp(300px, 100%, 700px);
   }
   .w-fit {
     width: fit-content;
@@ -326,6 +354,21 @@
   .grow {
     flex-grow: 1;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .scale-1 {
+    --tw-scale-x: 1%;
+    --tw-scale-y: 1%;
+    --tw-scale-z: 1%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
+  .scale-102 {
+    --tw-scale-x: 102%;
+    --tw-scale-y: 102%;
+    --tw-scale-z: 102%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
   .rotate-5 {
     rotate: 5deg;
   }
@@ -334,6 +377,9 @@
   }
   .transform-\[scaleX\(-1\)\] {
     transform: scaleX(-1);
+  }
+  .cursor-pointer {
+    cursor: pointer;
   }
   .resize {
     resize: both;
@@ -350,6 +396,12 @@
   .justify-center {
     justify-content: center;
   }
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
@@ -359,11 +411,26 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
+  .gap-7 {
+    gap: calc(var(--spacing) * 7);
+  }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .gap-9 {
+    gap: calc(var(--spacing) * 9);
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
+  }
+  .gap-14 {
+    gap: calc(var(--spacing) * 14);
+  }
+  .gap-15 {
+    gap: calc(var(--spacing) * 15);
   }
   .gap-16 {
     gap: calc(var(--spacing) * 16);
@@ -439,6 +506,9 @@
     --tw-gradient-to: var(--color-dark-base);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
+  .object-cover {
+    object-fit: cover;
+  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
@@ -447,6 +517,9 @@
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
   }
   .py-2\.5 {
     padding-block: calc(var(--spacing) * 2.5);
@@ -518,6 +591,9 @@
     --tw-ordinal: ordinal;
     font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .opacity-75 {
     opacity: 75%;
   }
@@ -564,6 +640,218 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .group-hover\:bg-amber-600 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: var(--color-amber-600);
+      }
+    }
+  }
+  .group-hover\:fill-amber-400 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-amber-400);
+      }
+    }
+  }
+  .group-hover\:fill-amber-600 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-amber-600);
+      }
+    }
+  }
+  .group-hover\:fill-amber-950 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-amber-950);
+      }
+    }
+  }
+  .group-hover\:fill-dark-primary-hover {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-dark-primary-hover);
+      }
+    }
+  }
+  .group-hover\:fill-dark-text {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-dark-text);
+      }
+    }
+  }
+  .group-hover\:opacity-1 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        opacity: 1%;
+      }
+    }
+  }
+  .group-hover\:opacity-100 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        opacity: 100%;
+      }
+    }
+  }
+  .hover\:scale-10 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 10%;
+        --tw-scale-y: 10%;
+        --tw-scale-z: 10%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-101 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 101%;
+        --tw-scale-y: 101%;
+        --tw-scale-z: 101%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-102 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 102%;
+        --tw-scale-y: 102%;
+        --tw-scale-z: 102%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-104 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 104%;
+        --tw-scale-y: 104%;
+        --tw-scale-z: 104%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-105 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 105%;
+        --tw-scale-y: 105%;
+        --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-200 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 200%;
+        --tw-scale-y: 200%;
+        --tw-scale-z: 200%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:transform {
+    &:hover {
+      @media (hover: hover) {
+        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+      }
+    }
+  }
+  .hover\:transform-\[scale\(\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: scale();
+      }
+    }
+  }
+  .hover\:transform-\[scale\(1\.0\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: scale(1.0);
+      }
+    }
+  }
+  .hover\:transform-\[scale\(1\.02\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: scale(1.02);
+      }
+    }
+  }
+  .hover\:transform-\[scale\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: scale;
+      }
+    }
+  }
+  .hover\:transform-\[translateX\(-50px\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translateX(-50px);
+      }
+    }
+  }
+  .hover\:transform-\[translateX\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translateX;
+      }
+    }
+  }
+  .hover\:transform-\[translate\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translate;
+      }
+    }
+  }
+  .hover\:transform-\[translatey\(-1\%\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translatey(-1%);
+      }
+    }
+  }
+  .hover\:transform-\[translatey\(-5\%\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translatey(-5%);
+      }
+    }
+  }
+  .hover\:transform-\[translatey\(-50px\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translatey(-50px);
+      }
+    }
+  }
+  .hover\:transform-\[translatey\(10\%\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translatey(10%);
+      }
+    }
+  }
+  .hover\:transform-\[translatey\(10\=\=5\%\)\] {
+    &:hover {
+      @media (hover: hover) {
+        transform: translatey(10==5%);
+      }
+    }
+  }
 }
 @font-face {
   font-family: "Sekuya";
@@ -578,6 +866,21 @@
   font-style: normal;
   font-display: swap;
   color: rgba(138, 48, 255, 0.2);
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -836,6 +1139,9 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
       --tw-rotate-z: initial;

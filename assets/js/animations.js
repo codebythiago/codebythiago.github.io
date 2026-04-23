@@ -5,6 +5,6 @@ import { SplitText } from "../../vendor/gsap/SplitText.js";
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother,SplitText);
 
 ScrollSmoother.create({
-    smooth: 3,
+    smooth: 2,
     effects: true
 });
