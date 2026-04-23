@@ -13,88 +13,38 @@
     src: url("../fonts/Montserrat.ttf");
     font-style: normal;
     font-display: swap;
+    color: rgba(138, 48, 255, 0.2);
 }
 
-:root {
-    /* ===== PADRÃO (NÃO MUDA) ===== */
+@theme {
+    --font-sekuya: "Sekuya", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
 
-    --font-display: "Sekuya", sans-serif;
-    --font-default: "Montserrat", sans-serif;
+    --color-primary: #5E1ABA;
+    --color-secondary: #A685A3;
 
-    --primary: #5E1ABA;
-    --secondary: #A685A3;
+    --color-dark-base: #0D0028;
+    --color-dark-surface-1: #140033;
+    --color-dark-surface-2: #1B0A3D;
 
-    /* ===== DARK THEME ===== */
-    --base: #0D0028;
+    --color-dark-primary-hover: #7A2CF0;
+    --color-dark-accent: #6EC8FF;
 
-    --surface-1: #140033;
-    --surface-2: #1B0A3D;
+    --color-dark-text: #EAE6FF;
+    --color-dark-muted: #A685A3;
 
-    --primary-hover: #7A2CF0;
-    
-    --accent: #6EC8FF;
+    --color-dark-border: rgba(138, 48, 255, 0.2);
 
-    --text: #EAE6FF;
-    --text-muted: #A685A3;
-}
-
-[data-theme="dark"] {
     /* ===== LIGHT THEME ===== */
-    --base: #F7F4FB;
+    --color-light-base: #F7F4FB;
 
-    --surface-1: #fff;
-    --surface-2: #EFEAF6;
+    --color-light-surface-1: #fff;
+    --color-light-surface-2: #EFEAF6;
 
-    --primary-hover: #4B1496;
+    --color-light-primary-hover: #4B1496;
     
-    --accent: #5FADE6;
+    --color-light-accent: #5FADE6;
 
-    --text: #1B102A;
-    --text-muted: #5A4B66;
-}
-
-@layer utilities {
-    .font-sekuya {
-        font-family: var(--font-display);
-    }
-
-    .font-montserrat {
-        font-family: var(--font-default);
-    }
-    
-    .bg-base {
-        background-color: var(--base);
-    }
-
-    .bg-surface {
-        background-color: var(--surface-1);
-    }
-
-    .bg-surface2 {
-        background-color: var(--surface-2);
-    }
-
-    .bg-primary {
-        background-color: var(--primary);
-    }
-
-    .bg-primary:hover {
-        background-color: var(--primary-hover);
-    }
-
-    .bg-secondary {
-        background-color: var(--secondary);
-    }
-
-    .bg-accent {
-        background-color: var(--accent);
-    }
-
-    .text-base {
-        color: var(--text);
-    }
-
-    .text-muted {
-        color: var(--text-muted);
-    }
+    --color-light-text: #1B102A;
+    --color-light-text-muted: #5A4B66;
 }
